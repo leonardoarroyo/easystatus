@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
 
 from easystatusapi.models import StatusPage, Component
 from easystatusapi.serializers import StatusPageSerializer, StatusPageListSerializer, ComponentSerializer, ComponentListSerializer
@@ -21,12 +22,6 @@ class StatusPageViewSet(viewsets.ModelViewSet):
 
   def list(self, request, *args, **kwargs):
     queryset = self.get_queryset()
-
-    page = self.paginate_queryset(queryset)
-    if page is not None:
-      serializer = StatusPageListSerializer(page, many=True)
-      return self.get_paginated_response(serializer.data)
-
     serializer = StatusPageListSerializer(queryset, many=True)
     return Response(serializer.data)
 
@@ -42,11 +37,31 @@ class ComponentViewSet(viewsets.ModelViewSet):
 
   def list(self, request, *args, **kwargs):
     queryset = self.get_queryset()
-
-    page = self.paginate_queryset(queryset)
-    if page is not None:
-      serializer = ComponentListSerializer(page, many=True)
-      return self.get_paginated_response(serializer.data)
-
     serializer = ComponentListSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+class PageComponentViewSet(viewsets.ReadOnlyModelViewSet):
+  """
+  PageComponent resource endpoint
+  """
+  serializer_class = ComponentSerializer
+
+  def get_queryset(self, page_pk=None):
+    result = Component.objects.all()
+    if page_pk:
+      result = result.filter(status_page=page_pk)
+    return result
+
+  def list(self, request, page_pk=None, *args, **kwargs):
+    queryset = self.get_queryset(page_pk=page_pk)
+    serializer = ComponentListSerializer(queryset, many=True)
+    return Response(serializer.data)
+
+  def retrieve(self, request, pk=None, page_pk=None, *args, **kwargs):
+    try:
+      queryset = self.get_queryset(page_pk=page_pk).get(pk=pk)
+    except ObjectDoesNotExist:
+      return Response({'detail': 'Not found.'}, status=404)
+
+    serializer = self.serializer_class(queryset)
     return Response(serializer.data)
