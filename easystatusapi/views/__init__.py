@@ -1,2 +1,3 @@
 from easystatusapi.views.status_page_viewset import StatusPageViewSet
-from easystatusapi.views.components_viewset import ComponentViewSet, PageComponentViewSet
+from easystatusapi.views.components_viewset import ComponentViewSet
+from easystatusapi.views.tests_viewset import TestViewSet
