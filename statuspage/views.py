@@ -26,6 +26,4 @@ def index(request):
   context['status_page'] = api_request('pages-detail', kwargs={'pk': 1})
   context['components'] = api_request('page-components-list', kwargs={'page_pk': 1})
 
-  print(context)
-
   return render(request, 'index.html', context)
