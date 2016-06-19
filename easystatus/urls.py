@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+import rest_framework_docs.urls
 import easystatusapi.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^docs/', include(rest_framework_docs.urls)),
     url('^', include(easystatusapi.urls))
 ]
