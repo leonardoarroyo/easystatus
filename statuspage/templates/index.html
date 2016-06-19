@@ -3,4 +3,10 @@
 {% block content %}
   <h1>{{status_page.name}}</h1>
   <p>{{status_page.description}}</p>
+  <h2>Components</h2>
+  <ul>
+  {% for component in components %}
+    <li>{{component.name}}</li>
+  {% endfor %}
+  </ul>
 {% endblock content %}
