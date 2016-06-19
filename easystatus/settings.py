@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'easystatus-api'
+    'rest_framework',
+    'easystatusapi'
 ]
 
 MIDDLEWARE_CLASSES = [
