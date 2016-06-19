@@ -1,6 +1,11 @@
 language: python
 python:
   - "3.5"
+env:
+  - DB_URL=mysql://travis:@localhost:3306/easystatus
 
-install: "pip install -r requirements.txt"
+before_script:
+  - mysql -e 'create database easystatus;'
+
+instale: "pip install -r requirements.txt"
 script: "make test"
