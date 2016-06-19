@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'easystatus.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.parse('mysql://root:@localhost:3306/easystatus')
+    'default': dj_database_url.parse(os.environ.get('DB_URL'))
 }
 
 
