@@ -3,9 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto auto;
+    }
+    .status {
+      background: #00A93E;
+      border: 1px solid #006324;
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: white;
+      font-size: 22px;
+      margin-top: 60px;
+    }
+    .components {
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .components li {
+      margin: 0 0;
+      border: 1px solid #ccc;
+      padding: 15px 15px;
+      border-bottom: none;
+    }
+    .components li:first-child {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .components li:last-child {
+      border: 1px solid #ccc;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  {% block content %}
-  {% endblock content %}
+  <div class="container">
+    {% block content %}
+    {% endblock content %}
+  </div>
 </body>
 </html>

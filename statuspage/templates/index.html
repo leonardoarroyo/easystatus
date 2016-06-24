@@ -3,10 +3,28 @@
 {% block content %}
   <h1>{{status_page.name}}</h1>
   <p>{{status_page.description}}</p>
-  <h2>Components</h2>
-  <ul>
+
+  <div class="status">
+    All Systems Operational
+  </div>
+
+  <ul class="components">
   {% for component in components %}
     <li>{{component.name}}</li>
   {% endfor %}
   </ul>
+
+  <h3>Incidents</h3>
+  <h4>Jun 23, 2016</h4>
+  <p>Dolor assumenda sequi accusamus dolorum et repellendus est? Quos nisi commodi distinctio at ad. Animi quis consequatur consequatur tempora necessitatibus natus perferendis dolor iure. Eos cum itaque laboriosam ipsam fugiat?</p>
+  <h4>Jun 22, 2016</h4>
+  <p>No incidents.</p>
+  <h4>Jun 21, 2016</h4>
+  <p>No incidents.</p>
+  <h4>Jun 20, 2016</h4>
+  <p>No incidents.</p>
+  <h4>Jun 19, 2016</h4>
+  <p>No incidents.</p>
+  <h4>Jun 18, 2016</h4>
+  <p>No incidents.</p>
 {% endblock content %}
