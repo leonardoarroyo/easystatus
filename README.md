@@ -1,5 +1,5 @@
 # EasyStatus
-[![TravisCI](https://travis-ci.org/leonardoarroyo/easystatus.svg)]((https://travis-ci.org/leonardoarroyo/easystatus))
+[![TravisCI](https://travis-ci.org/leonardoarroyo/easystatus.svg)](https://travis-ci.org/leonardoarroyo/easystatus)
 
 EasyStatus was born as simple open source alternative to StatusPage.io, Status.io and CachetHQ.
 
