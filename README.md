@@ -16,8 +16,6 @@ The project was developed and test on Python 3.5. Other versions weren't tested.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
 Let's start by creating a virtualenv
 
 ```
